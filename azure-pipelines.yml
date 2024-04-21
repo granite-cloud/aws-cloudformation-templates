@@ -1,0 +1,13 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: TerraformTaskV1@0
+  inputs:
+    awsCredentials: 'your-aws-service-connection-name'
+    regionName: 'us-east-1'
+    scriptType: 'inline'
+    inlineScript: 'aws s3 ls'
